@@ -1,25 +1,21 @@
 class App {
     constructor() {
-        this.$moviesWrapper = document.querySelector('.movies-wrapper')
-        
-        this.moviesApi = new MovieApi('/data/new-movie-data.json')
-        this.externalMoviesApi = new MovieApi('/data/external-movie-data.json')
+        this.$moviesWrapper = document.querySelector('.photographer_section')
+        this.photograph = new MovieApi('/data/photographers.json')
     }
 
     async main() {
-        const moviesData = await this.moviesApi.get()
-        const externalMoviesData = await this.externalMoviesApi.get()
 
+        const photograph = await this.photograph.get()
 
-        const Movies = moviesData.map(movie => new MoviesFactory(movie, 'newApi'))
-        const ExternalMovies = externalMoviesData.map(movie => new MoviesFactory(movie, 'externalApi'))
+        const Photograph = photograph.map(movie => new PhotographFactory(movie, 'photograph'))
 
-        const FullMovies = Movies.concat(ExternalMovies)
+        const PrintPhotograph = Photograph
 
-        FullMovies.forEach(movie => {
-                const Template = new MovieCard(movie)
+        PrintPhotograph.forEach(movie => {
+                const Template = new PhotographersCard(movie)
                 this.$moviesWrapper.appendChild(
-                    Template.createMovieCard()
+                    Template.createPhotographCard()
                 )
         })
     }
