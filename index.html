@@ -1,21 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    
     <title>Fisheye</title>
-  </head>
-  <body>
+</head>
+<body>
     <header>
         <img src="assets/images/logo.png" class="logo" />
         <h1>Nos photographes</h1>
     </header>
-    <main id="main">
-        <div class="photographer_section"></div>
-    </main>
-    <script src="scripts/factories/photographer.js"></script>
-    <script src="scripts/pages/index.js"></script>
-  </body>
+    <main class="movies-wrapper"></main>
+    <!-- Factories -->
+    <script src="/js/factories/MoviesFactory.js"></script>
+
+    <!-- Models -->
+    <script src="/js/models/OldMovie.js"></script>
+    <script src="/js/models/ExternalMovie.js"></script>
+    <script src="/js/models/Movie.js"></script>
+
+    <!-- Singleton -->
+    <script src="/js/db/User.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates/MovieCard.js"></script>
+
+    <!-- Api -->
+    <script src="/js/api/Api.js"></script>
+
+    <!-- Entry point -->
+    <script src="/js/App.js"></script>
+</body>
 </html>
