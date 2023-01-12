@@ -1,21 +1,22 @@
+import PhotographApi from "./api/Api.js";
+import Photograph from "./models/Photograph.js";
+import PhotographersCard from "./templates/PhotographersCard.js";
+
 class App {
     constructor() {
-        this.$moviesWrapper = document.querySelector('.photographer_section')
-        this.photograph = new MovieApi('/data/photographers.json')
+        this.$photographContainer = document.querySelector('.photographer_section')
+        this.photograph = new PhotographApi('/data/photographers.json')
     }
 
     async main() {
 
         const photograph = await this.photograph.get()
-
-        const Photograph = photograph.map(movie => new PhotographFactory(movie, 'photograph'))
-
-        const PrintPhotograph = Photograph
-
-        PrintPhotograph.forEach(movie => {
-                const Template = new PhotographersCard(movie)
-                this.$moviesWrapper.appendChild(
-                    Template.createPhotographCard()
+        
+        photograph.forEach(photograph => {
+                const photographer = new Photograph(photograph)
+                const template = new PhotographersCard(photographer)
+                this.$photographContainer.appendChild(
+                    template.createPhotographCard()
                 )
         })
     }

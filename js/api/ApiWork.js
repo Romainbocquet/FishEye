@@ -1,4 +1,4 @@
-class Api {
+class ApiWork {
     /**
      * 
      * @param {string} url 
@@ -7,16 +7,16 @@ class Api {
         this._url = url
     }
 
-    async get() {
+    async getWork() {
         return fetch(this._url)
             .then(res => res.json())
-            .then(res => res.data)
+            .then(res => res.media)
             .catch(err => console.log('an error occurs', err))
     }
 }
 
 
-export default class PhotographApi extends Api { 
+export default class WorksApi extends ApiWork { 
     /**
      * 
      * @param {string} url 
@@ -25,7 +25,7 @@ export default class PhotographApi extends Api {
         super(url)
     }
 
-    async getPhotographs() {
-        return await this.get()
+    async getWorks() {
+        return await this.getWork()
     }
 }

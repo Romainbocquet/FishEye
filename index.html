@@ -1,38 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Style -->
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="icon" type="image/png" href="assets/favicon.png">
+        <!-- Entry point -->
+        <script src="/js/App.js" type="module"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    
-    <title>Fisheye</title>
-</head>
-<body>
-    <header>
-        <img src="assets/logo.png" class="logo" />
-        <h1>Nos photographes</h1>
-    </header>
-    <main class="photographer_section"></main>
-    <!-- Factories -->
-    <script src="/js/factories/PhotographFactory.js"></script>
-
-    <!-- Models -->
-    <script src="/js/models/Photograph.js"></script>
-
-    <!-- Singleton -->
-    <script src="/js/db/User.js"></script>
-
-    <!-- Templates -->
-    <script src="/js/templates/PhotographersCard.js"></script>
-
-    <!-- Api -->
-    <script src="/js/api/Api.js"></script>
-
-    <!-- Entry point -->
-    <script src="/js/App.js"></script>
-</body>
+        <title>Fisheye</title>
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img src="assets/logo.png" class="logo" /></a>
+            <h1>Nos photographes</h1>
+        </header>
+        <main class="photographer_section"></main>
+    </body>
 </html>

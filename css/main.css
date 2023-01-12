@@ -19,6 +19,11 @@ h1 {
     margin-right: 100px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .logo {
     height: 50px;
     margin-left: 100px;
@@ -42,9 +47,140 @@ h1 {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    font-weight: 400;
+    margin: 10px 0px;
 }
 
-.photographer_section article img {
+.photographer_section article .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+}
+
+.photographer_section article span {
+    font-style: normal;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+article #location {
+    color: #901C1C;
+}
+
+article #tagline {
+    color: #111;
+}
+
+.photographer_section article #price {
+    color: #757575;
+}
+
+article img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
     height: 200px;
     width: 200px;
 }
+
+.photograph-work {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FAFAFA;
+    margin: 30px 0px;
+    align-items: center;
+    padding: 70px;
+    border-radius: 5px;
+}
+
+.photograph-work-wrapper article .info {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
+.photograph-work-wrapper article .photograph-info {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
+.photograph-work-wrapper article h2 {
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: 400;
+    margin: 5px 0px;
+}
+
+.photograph-work-wrapper article #location {
+    font-style: normal;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.photograph-work-wrapper article #tagline {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.contact-button {
+    background: #911C1C;
+    border-radius: 5px;
+    border: none;
+    padding: 20px 30px;
+    color: white;
+}
+
+.photograph_section {
+    margin: 0px 100px;
+}
+
+.work_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.work-card-wrapper {
+    margin-bottom: 30px;
+}
+
+.work-card-wrapper article img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    height: 300px;
+    width: 350px;
+    box-shadow: none;
+}
+
+.work-card-wrapper article .img-title {
+    font-size: 20px;
+    font-weight: 400;
+    color: #911C1C;
+    margin: 0;
+}
+
+.work-card-wrapper article .info-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.work-card-wrapper article .img-like {
+    margin: 0;
+    font-size: 14px;
+}
+
+.work-card-wrapper .fa-solid.fa-heart {
+    color: #911C1C;
+}
+
+
