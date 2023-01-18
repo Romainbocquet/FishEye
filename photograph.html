@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/inputSelectCustom.css">
         <link rel="icon" type="image/png" href="assets/favicon.png">
         <!-- Entry point -->
         <script src="/js/AppWork.js" type="module"></script>
@@ -22,17 +23,20 @@
         <main class="photograph_section">
             <div class="photograph_desc_section"></div>
             <div class="photograph_work_section">
-                <div class="filtre">
-                    <label>Trier par</label>     
-                    <select name="filtre" id="filtre-select">
-                        <option value="filtres">--Filtres--</option>
-                        <option value="popularite">Popularité</option>
-                        <option value="date">Date</option>
-                        <option value="titre">Titre</option>
-                    </select>
+                <div class="custom-select-section">
+                    <label for="custom-select">Trier par</label>
+                    <div class="custom-select">
+                        <select id="filtre-select-custom">
+                            <option value="1">Filtres</option>
+                            <option value="1">Popularité</option>
+                            <option value="2">Date</option>
+                            <option value="3">Titre</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="work_section"></div>
             </div>
         </main>
     </body>
+    <script src="./js/script.js"></script>
 </html>

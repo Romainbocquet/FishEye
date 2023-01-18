@@ -3,11 +3,6 @@ import WorksApi from "./api/ApiWork.js";
 import Photograph from "./models/Photograph.js";
 import PhotographersCard from "./templates/PhotographersCard.js";
 import MediaFactory from "./factories/MediaFactory.js";
-import Work from "./models/Work.js";
-import WorkCard from "./templates/WorkCard.js";
-
-
-
 
 class AppWork {
     constructor() {
@@ -26,7 +21,7 @@ class AppWork {
                 const photographer = new Photograph(photograph)
                 const template = new PhotographersCard(photographer)
                 this.$photographContainer.appendChild(
-                    template.createPhotographCard2()
+                    template.createPhotographBanner()
                 )
             } else {
                 return false
@@ -43,28 +38,15 @@ class AppWorkMedia {
     async mainWork() {
         const work = await this.work.getWorks()
 
-        //const photo = work.map(work => new MediaFactory(work, 'photo'))
-        //const video = work.map(work => new MediaFactory(work, 'video'))
-
         let params = new URLSearchParams(window.location.search)
         let searchParams = params.get('id')
 
         work.forEach(work => {
             if(work.photographerId == searchParams){
-                if(work.video == undefined) {
-                    const works = new Work(work)
-                    const template = new WorkCard(works)
-                    this.$workContainer.appendChild(
-                        template.createWorkCardPhoto()
-                    )
-                }
-                else if(work.video !== undefined) {
-                    const works = new Work(work)
-                    const template = new WorkCard(works)
-                    this.$workContainer.appendChild(
-                        template.createWorkCardVideo()
-                    )
-                }
+                const works = new MediaFactory(work)
+                this.$workContainer.appendChild(
+                    works.createWorkCard()
+                )
             } else {
                 return false
             }

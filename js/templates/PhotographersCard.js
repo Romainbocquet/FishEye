@@ -27,7 +27,7 @@ export default class PhotographersCard {
         return $wrapper
     }
 
-    createPhotographCard2() {
+    createPhotographBanner() {
         const $wrapper = document.createElement('div')
         $wrapper.classList.add('photograph-work-wrapper')
 

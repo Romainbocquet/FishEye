@@ -1,14 +1,14 @@
-export default class Video{
+export default class Photo{
   constructor(media) {
     this._id = media.id
     this._photographerId = media.photographerId
     this._title = media.title
+    this._image = media.image
     this._video = media.video
     this._likes = media.likes
     this._date = media.date
     this._price = media.price
   }
-
   get id() {
     return this._id
   }
@@ -18,25 +18,25 @@ export default class Video{
   get title() {
     return this._title
   }
-  get video() { 
+  get image() {
     let baseUrl = "/assets/photographers/"
     if(this._photographerId == 527) {
-      return `${baseUrl}Nabeel/${this._video}`
+      return `${baseUrl}Nabeel/${this._image}`
     }
     if(this._photographerId == 243) {
-      return `${baseUrl}Mimi/${this._video}`
+      return `${baseUrl}Mimi/${this._image}`
     }
     if(this._photographerId == 930) {
-      return `${baseUrl}Ellie Rose/${this._video}`
+      return `${baseUrl}Ellie Rose/${this._image}`
     }
     if(this._photographerId == 82) {
-      return `${baseUrl}Tracy/${this._video}`
+      return `${baseUrl}Tracy/${this._image}`
     }
     if(this._photographerId == 925) {
-      return `${baseUrl}Rhode/${this._video}`
+      return `${baseUrl}Rhode/${this._image}`
     }
     if(this._photographerId == 195) {
-      return `${baseUrl}Marcel/${this._video}`
+      return `${baseUrl}Marcel/${this._image}`
     }
   }
   get likes() {
@@ -47,16 +47,17 @@ export default class Video{
   }
   get price() {
     return this._price
-  }
+  } 
   createWorkCard() {
         
     const $wrapper = document.createElement('div')
     $wrapper.classList.add('work-card-wrapper')
     const workCard = `
             <article>
-                <video controls width="350px" height:"300px">                
-                    <source src="${this.video}" type="video/mp4">
-                </video>
+                <img
+                    alt="${this.title}"
+                    src="${this.image}"
+                />
                 <div class="info-img">
                     <h2 class="img-title">${this.title}</h2>
                     <span id="img-like">${this.likes}</span>
