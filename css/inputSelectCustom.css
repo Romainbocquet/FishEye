@@ -9,14 +9,13 @@
 /*the container must be positioned relative:*/
 .custom-select {
   position: relative;
-  font-family: Arial;
   width: 200px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.custom-select select {
-  display: none; /*hide original SELECT element:*/
-}
+/* .custom-select select {
+  display: none;
+} */
 
 .select-selected {
   background-color: #901C1C;
