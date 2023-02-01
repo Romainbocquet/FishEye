@@ -1,84 +1,106 @@
-.custom-select-section {
+.select-container {
+  position: relative;
+  width: 180px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.select-container .select {
+  position: relative;
+  background: #911C1C;
+  border-radius: 5px;
+  height: 60px;
+}
+
+.select-container {
+  border-radius: 5px;
+}
+
+.select-container.active .select{
+  border-radius: 5px 5px 0px 0px;
+}
+
+.select-container .select::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-55%) rotate(45deg);
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  cursor: pointer;
+}
+
+.select-container.active .select::after {
+  border: none;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+}
+.select-container .select input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.select-container .select input::placeholder {
+  height: 100%;
+  color: white;
+}
+.select-container .option-container {
+  position: absolute;
+  background: #911C1C;
+  border-radius: 0px 0px 5px 5px;
+  height: 0;
+  overflow-y: hidden;
+  transition: 0.4s;
+  width: 180px;
+}
+
+.select-container.active .option-container {
+  height: auto;
+}
+
+.select-container .option-container .option {
+  position: relative;
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 60px;
+  border-top: 1px solid white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.select-container .option-container .option.selected {
+  display: none;
+}
+
+.select-container .option-container .option:hover {
+  padding-left: 10px;
+  font-weight: bolder;
+}
+
+.select-container .option-container .option label {
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.filter_section div:first-child{
   display: flex;
   align-items: center;
 }
 
-.custom-select-section label{
-  margin-right: 20px;
-}
-/*the container must be positioned relative:*/
-.custom-select {
-  position: relative;
-  width: 200px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-/* .custom-select select {
-  display: none;
-} */
-
-.select-selected {
-  background-color: #901C1C;
-  border-radius: 5px 5px 5px 5px;
-  padding: 20px;
-}
-
-/*style the arrow inside the select element:*/
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 24px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 17px;
-}
-
-/*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
-  color: #ffffff;
-  cursor: pointer;
-  user-select: none;
-}
-
-.select-items div {
-  border-bottom: 2px solid white;
-  padding: 20px 20px;
-}
-
-.select-items div:last-child {
-  border-bottom: none;
-}
-
-
-.select-arrow-active {
-  border-radius: 5px 5px 0px 0px;
-}
-
-/*style items (options):*/
-.select-items {
-  position: absolute;
-  background-color: #901C1C;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  border-radius: 0px 0px 5px 5px;
-  padding: 10px;
-}
-
-/*hide the items when the select box is closed:*/
-.select-hide {
-  display: none;
-}
-
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+.filter_section #label-select {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  margin-right: 30px;
 }

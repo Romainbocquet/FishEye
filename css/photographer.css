@@ -1,4 +1,7 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 
 .photograph-header {
     background-color: #FAFAFA;
@@ -45,4 +48,96 @@
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+}
+
+.modal-contact form{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-contact{
+    position: absolute;
+    top: 10vh;
+    transform: translateX(50%);
+    width: 40vw;
+    height: auto;
+    background-color: #DB8876;
+    padding: 20px 35px 20px 35px;
+    border-radius: 5px;
+    display: none;
+    z-index: 999;
+}
+
+.modal-contact h3{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.modal-contact.open {
+    display: block;
+}
+
+.modal-contact form label{
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    color: #312E2E;
+}
+
+.modal-contact form input{
+    border: none;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 47px
+}
+
+.modal-contact input[type=text],
+.modal-contact input[type=email]{
+    padding: 0px 20px;
+}
+
+.modal-contact input[name="message"] {
+    height: auto;
+}
+
+.close-contact {
+    color: white;
+    font-size: 150%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+#send-button {
+    background-color: #901C1C;
+    color: white;
+    margin-top: 30px;
+    cursor: pointer;
+    width: 25%;
+    border-radius: 5px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.info span{
+    margin-top: 10px;
+}
+
+#prenom-error, #nom-error, #email-error, #message-error {
+    color: #901C1C;
+    margin-top: 5px;
+    display: none;
+}
+
+.d-show {
+    display: block !important;
 }

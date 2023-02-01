@@ -3,6 +3,7 @@ import WorksApi from "./api/ApiWork.js";
 import Photograph from "./models/Photograph.js";
 import PhotographersCard from "./templates/PhotographersCard.js";
 import MediaFactory from "./factories/MediaFactory.js";
+import SorterForm from "./templates/SorterForm.js";
 
 class AppWork {
     constructor() {
@@ -40,6 +41,9 @@ class AppWorkMedia {
 
         let params = new URLSearchParams(window.location.search)
         let searchParams = params.get('id')
+
+        const Sorter = new SorterForm(work)
+        Sorter.render()
 
         work.forEach(work => {
             if(work.photographerId == searchParams){

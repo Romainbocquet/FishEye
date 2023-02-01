@@ -54,7 +54,7 @@ export default class Video{
     $wrapper.classList.add('work-card-wrapper')
     const workCard = `
             <article>
-                <video controls width="350px" height:"300px">                
+                <video>                
                     <source src="${this.video}" type="video/mp4">
                 </video>
                 <div class="info-img">
