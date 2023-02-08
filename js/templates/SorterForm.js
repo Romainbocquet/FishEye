@@ -21,18 +21,11 @@ export default class SorterForm {
 
             const SortedMedia = sortedData.media 
 
-            let params = new URLSearchParams(window.location.search)
-            let searchParams = params.get('id')
-
             SortedMedia.forEach(work => {
-                if(work.photographerId == searchParams){
                     const works = new MediaFactory(work)
                     this.$mediaWrapper.appendChild(
                         works.createWorkCard()
                     )
-                } else {
-                    return false
-                }
             })
         } else {
             this.Media.forEach(work => {

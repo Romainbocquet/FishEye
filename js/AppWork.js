@@ -4,6 +4,7 @@ import Photograph from "./models/Photograph.js";
 import PhotographersCard from "./templates/PhotographersCard.js";
 import MediaFactory from "./factories/MediaFactory.js";
 import SorterForm from "./templates/SorterForm.js";
+import carouselModal from "./templates/Carousel.js";
 
 class AppWork {
     constructor() {
@@ -38,23 +39,19 @@ class AppWorkMedia {
     }
     async mainWork() {
         const work = await this.work.getWorks()
-
-        let params = new URLSearchParams(window.location.search)
-        let searchParams = params.get('id')
+        console.log(work);
 
         const Sorter = new SorterForm(work)
         Sorter.render()
 
         work.forEach(work => {
-            if(work.photographerId == searchParams){
-                const works = new MediaFactory(work)
-                this.$workContainer.appendChild(
-                    works.createWorkCard()
-                )
-            } else {
-                return false
-            }
+            const works = new MediaFactory(work)
+            this.$workContainer.appendChild(
+                works.createWorkCard()
+            )
         })
+        const Carousel = new carouselModal(work);
+        Carousel.render()
     }
 }
 const appMedia = new AppWorkMedia()

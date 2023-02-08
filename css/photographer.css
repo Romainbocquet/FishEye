@@ -141,3 +141,7 @@
 .d-show {
     display: block !important;
 }
+
+.carousel-modal {
+    display: none;
+}

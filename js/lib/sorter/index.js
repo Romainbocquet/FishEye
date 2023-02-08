@@ -1,7 +1,5 @@
 export default class RatingSorterApi {
   static async sorter(media, orderBy) {
-      console.log("Get from compute")
-
       if (orderBy === 'title') {
                   const result = {
                       key: orderBy,
@@ -14,7 +12,6 @@ export default class RatingSorterApi {
                           if (titleA < titleB) {
                             return -1;
                           }
-                          // names must be equal
                           return 0;
                       }),
                   }
@@ -31,11 +28,9 @@ export default class RatingSorterApi {
                 if (dateA < dateB) {
                   return -1;
                 }
-                // names must be equal
                 return 0;
             }),
         }
-        console.log(result)
         return result;
       } else if (orderBy === 'like') {
             const result = {
@@ -49,7 +44,6 @@ export default class RatingSorterApi {
                     if (likeA < likeB) {
                     return 1;
                     }
-                    // names must be equal
                     return 0;
                 }),
             }

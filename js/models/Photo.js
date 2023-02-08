@@ -20,24 +20,7 @@ export default class Photo{
   }
   get image() {
     let baseUrl = "/assets/photographers/"
-    if(this._photographerId == 527) {
-      return `${baseUrl}Nabeel/${this._image}`
-    }
-    if(this._photographerId == 243) {
-      return `${baseUrl}Mimi/${this._image}`
-    }
-    if(this._photographerId == 930) {
-      return `${baseUrl}Ellie Rose/${this._image}`
-    }
-    if(this._photographerId == 82) {
-      return `${baseUrl}Tracy/${this._image}`
-    }
-    if(this._photographerId == 925) {
-      return `${baseUrl}Rhode/${this._image}`
-    }
-    if(this._photographerId == 195) {
-      return `${baseUrl}Marcel/${this._image}`
-    }
+    return `${baseUrl}${this._photographerId}/${this._image}`
   }
   get likes() {
     return `${this._likes} <i class="fa-solid fa-heart"></i>`
@@ -47,13 +30,13 @@ export default class Photo{
   }
   get price() {
     return this._price
-  } 
+  }
+
   createWorkCard() {
-        
     const $wrapper = document.createElement('div')
     $wrapper.classList.add('work-card-wrapper')
     const workCard = `
-            <article>
+            <article data-id="${this.id}">
                 <img
                     alt="${this.title}"
                     src="${this.image}"
@@ -68,4 +51,3 @@ export default class Photo{
     return $wrapper
   }
 }
-

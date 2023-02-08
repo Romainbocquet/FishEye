@@ -26,6 +26,18 @@ export default class WorksApi extends ApiWork {
     }
 
     async getWorks() {
-        return await this.getWork()
-    }
+        let params = new URLSearchParams(window.location.search)
+        let searchParams = params.get('id')
+        let matchingMedia = [];
+      
+        await this.getWork().then(mediaArray => {
+          mediaArray.forEach(media => {
+            if (media.photographerId == searchParams) {
+              matchingMedia.push(media);
+            }
+          });
+        });
+      
+        return matchingMedia;
+      }
 }

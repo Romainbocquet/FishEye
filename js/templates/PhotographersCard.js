@@ -126,7 +126,6 @@ export default class PhotographersCard {
                 contactForm.push(prenomValue.value);
                 contactForm.push(emailValue.value);
                 contactForm.push(messageValue.value);
-                console.log(contactForm);
             }
         })
     }

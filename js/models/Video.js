@@ -20,24 +20,7 @@ export default class Video{
   }
   get video() { 
     let baseUrl = "/assets/photographers/"
-    if(this._photographerId == 527) {
-      return `${baseUrl}Nabeel/${this._video}`
-    }
-    if(this._photographerId == 243) {
-      return `${baseUrl}Mimi/${this._video}`
-    }
-    if(this._photographerId == 930) {
-      return `${baseUrl}Ellie Rose/${this._video}`
-    }
-    if(this._photographerId == 82) {
-      return `${baseUrl}Tracy/${this._video}`
-    }
-    if(this._photographerId == 925) {
-      return `${baseUrl}Rhode/${this._video}`
-    }
-    if(this._photographerId == 195) {
-      return `${baseUrl}Marcel/${this._video}`
-    }
+    return `${baseUrl}${this._photographerId}/${this._video}`
   }
   get likes() {
     return `${this._likes} <i class="fa-solid fa-heart"></i>`

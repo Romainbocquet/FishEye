@@ -10,8 +10,6 @@ export default class ProxyRatingSorter {
         const cachedResult = this.cache.find(elt => elt.key === orderBy)
 
         if (cachedResult) {
-            console.log('get from cache')
-
             return cachedResult
         }
 
