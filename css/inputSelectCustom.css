@@ -13,6 +13,7 @@
 
 .select-container {
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .select-container.active .select{
@@ -29,7 +30,6 @@
   transform: translateY(-55%) rotate(45deg);
   border-bottom: 2px solid white;
   border-right: 2px solid white;
-  cursor: pointer;
 }
 
 .select-container.active .select::after {
@@ -46,7 +46,7 @@
   outline: none;
   border: none;
   color: white;
-  cursor: pointer;
+  pointer-events: none;
 }
 .select-container .select input::placeholder {
   height: 100%;

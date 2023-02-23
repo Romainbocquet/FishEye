@@ -148,7 +148,7 @@ export default class PhotographersCard {
                 </article>
                 <div class="modal-contact">
                     <form>
-                        <div class="close-contact">X</div>
+                        <div class="close-contact"><i class="fa-sharp fa-solid fa-xmark"></i></div>
                         <h3 for="">Contactez-moi <br>${this._photograph.name}</h3>
                         <label for="name">Prénom *</label>
                         <input type="text" name="name" id="prenom" required>

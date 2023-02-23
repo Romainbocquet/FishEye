@@ -19,24 +19,20 @@ export default class SorterForm {
 
             const sortedData = await this.ProxyRatingSorter.sorter(this.media, sorter)
 
-            const SortedMedia = sortedData.media 
+            const sortedMedia = sortedData.media 
 
-            SortedMedia.forEach(work => {
+            sortedMedia.forEach(work => {
                     const works = new MediaFactory(work)
                     this.$mediaWrapper.appendChild(
-                        works.createWorkCard()
+                        works.createWorkCard(sortedMedia)
                     )
             })
         } else {
-            this.Media.forEach(work => {
-                if(work.photographerId == searchParams){
-                    const works = new MediaFactory(work)
-                    this.$workContainer.appendChild(
-                        works.createWorkCard()
-                    )
-                } else {
-                    return false
-                }
+            this.media.forEach(work => {
+                const works = new MediaFactory(work)
+                this.$workContainer.appendChild(
+                    works.createWorkCard(this.media)
+                )
             })
         }
     }
@@ -80,7 +76,7 @@ export default class SorterForm {
             <label for="custom-select" id="label-select">Trier par</label>
             <form class="select-container">
                 <div class="select">
-                    <input type="text" name="custom-select" id="input" placeholder="Filtres" onfocus="this.blur();">
+                    <input type="text" name="custom-select" id="input" placeholder="Filtres">
                 </div>
                 <div class="option-container">
                     <div class="option" sorter="title">

@@ -25,7 +25,7 @@ export default class WorksApi extends ApiWork {
         super(url)
     }
 
-    async getWorks() {
+    async getWorksByIdPhotograph() {
         let params = new URLSearchParams(window.location.search)
         let searchParams = params.get('id')
         let matchingMedia = [];

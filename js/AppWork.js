@@ -4,7 +4,6 @@ import Photograph from "./models/Photograph.js";
 import PhotographersCard from "./templates/PhotographersCard.js";
 import MediaFactory from "./factories/MediaFactory.js";
 import SorterForm from "./templates/SorterForm.js";
-import carouselModal from "./templates/Carousel.js";
 
 class AppWork {
     constructor() {
@@ -38,20 +37,16 @@ class AppWorkMedia {
         this.work = new WorksApi('/data/photographers.json')
     }
     async mainWork() {
-        const work = await this.work.getWorks()
-        console.log(work);
-
-        const Sorter = new SorterForm(work)
-        Sorter.render()
+        const work = await this.work.getWorksByIdPhotograph()
+        const sorter = new SorterForm(work)
+        sorter.render()
 
         work.forEach(work => {
             const works = new MediaFactory(work)
             this.$workContainer.appendChild(
-                works.createWorkCard()
+                works.createWorkCard(sorter)
             )
         })
-        const Carousel = new carouselModal(work);
-        Carousel.render()
     }
 }
 const appMedia = new AppWorkMedia()
