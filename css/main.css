@@ -5,7 +5,6 @@ body {
     margin: 0;
 }
 
-
 header {
     display: flex;
     flex-direction: row;
@@ -22,10 +21,14 @@ h1 {
 a {
     text-decoration: none;
     color: black;
+    display: block;
 }
 
 .logo {
     height: 50px;
+}
+
+.logo-container {
     margin-left: 100px;
 }
 
@@ -33,7 +36,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin: 100px 0px;
 }
 
 .photographer_section article {
@@ -60,9 +63,9 @@ a {
 
 .photographer_section article span {
     font-style: normal;
-    margin-bottom: 5px;
     font-weight: 400;
     font-size: 13px;
+    margin-top:  5px;
 }
 
 article #location {
@@ -77,55 +80,13 @@ article #tagline {
     color: #757575;
 }
 
-article img {
+.photographer_section article img, .photograph-profil-picture {
     border-radius: 50%;
     margin-bottom: 15px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
     object-fit: cover;
     height: 200px;
     width: 200px;
-}
-
-.photograph-work {
-    display: flex;
-    justify-content: space-between;
-    background-color: #FAFAFA;
-    margin: 30px 0px;
-    align-items: center;
-    padding: 70px;
-    border-radius: 5px;
-}
-
-.photograph-work-wrapper article .info {
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-}
-
-.photograph-work-wrapper article .photograph-info {
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-}
-
-.photograph-work-wrapper article h2 {
-    color: #D3573C;
-    font-size: 64px;
-    font-weight: 400;
-    margin: 5px 0px;
-}
-
-.photograph-work-wrapper article #location {
-    font-style: normal;
-    margin-bottom: 15px;
-    font-weight: 400;
-    font-size: 24px;
-}
-
-.photograph-work-wrapper article #tagline {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
 }
 
 .photograph_section {
@@ -136,7 +97,7 @@ article img {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 50px;
+    margin: 50px 0px;
 }
 
 .work-card-wrapper {
@@ -146,12 +107,12 @@ article img {
 .work-card-wrapper article img,
 .work-card-wrapper article video {
     border-radius: 5px;
-    margin-bottom: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
     object-fit: cover;
     height: 300px;
     width: 350px;
     box-shadow: none;
+    cursor: pointer;
 }
 
 .work-card-wrapper article .img-title {
@@ -165,15 +126,49 @@ article img {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
-.work-card-wrapper article .img-like {
+.work-card-wrapper article .info-img .img-like span {
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
+    display: flex;
+    color: #911C1C;
+}
+
+.work-card-wrapper article .info-img #like-value{
+    margin-right: 10px;
 }
 
 .work-card-wrapper .fa-solid.fa-heart {
     color: #911C1C;
 }
 
+@media only screen and (max-width: 600px) {
+    .photographer_section {
+        grid-template-columns:auto;
+    }
+    .home {
+        flex-direction: column;
+        height: auto;
+    }
+    .home h1 {
+        margin-left: 80px;
+    }
+    .photographer_section {
+        margin-top: 40px;
+    }
+    .logo {
+        margin-left: 0 !important;
+    }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
 

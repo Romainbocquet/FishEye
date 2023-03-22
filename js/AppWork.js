@@ -44,7 +44,7 @@ class AppWorkMedia {
         work.forEach(work => {
             const works = new MediaFactory(work)
             this.$workContainer.appendChild(
-                works.createWorkCard(sorter)
+                works.createWorkCard(sorter, works.domMediaDisplay)
             )
         })
     }

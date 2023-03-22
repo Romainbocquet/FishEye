@@ -21,17 +21,22 @@ export default class Carousel {
 
     onCloseButton() {
         const $closeBtn = this.$wrapper.querySelector('.close-btn');
+
         $closeBtn.addEventListener('click', () => {
           document.body.classList.remove('no-scroll');
       
           this.$modalWrapper.classList.remove('d-show');
           this.$modalWrapper.removeChild(this.$wrapper);
+            document.querySelector(".work_section").classList.remove("d-none");
+
         });
         document.addEventListener('keydown', (event) => {
             if (event.key === "Escape") {
                 document.body.classList.remove('no-scroll');
                 this.$modalWrapper.classList.remove('d-show');
                 this.$modalWrapper.removeChild(this.$wrapper);
+                document.querySelector(".work_section").classList.remove("d-none");
+
             }
         });
       }
@@ -103,6 +108,40 @@ export default class Carousel {
         this.$modalWrapper.innerHTML = ""
     }
 
+    keepFocusOnModal() {
+        // add all the elements inside modal which you want to make focusable
+        const  focusableElements =
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        const modal = this.$modalWrapper.querySelector('#slider'); // select the modal by it's id
+        console.log(modal);
+        const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+        const focusableContent = modal.querySelectorAll(focusableElements);
+        const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+
+
+        document.addEventListener('keydown', function(e) {
+        let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+        if (!isTabPressed) {
+        return;
+        }
+
+        if (e.shiftKey) { // if shift key pressed for shift + tab combination
+        if (document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus(); // add focus for the last focusable element
+        e.preventDefault();
+        }
+        } else { // if tab key is pressed
+        if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+        firstFocusableElement.focus(); // add focus for the first focusable element
+        e.preventDefault();
+        }
+        }
+        });
+
+        firstFocusableElement.focus();
+    }
+
     createCarousel(sorter, clickedId) {
         if (sorter && Array.isArray(sorter)) {
             this.sorter = sorter;
@@ -112,20 +151,20 @@ export default class Carousel {
 
         const mediaArray = this.medias || this.sorter;
 
-        mediaArray.forEach((media, index) => {
-            const medias = new MediaFactory(media)
-            this.$mediaArray.push(medias.createCorouselCard());
-            if (media.id === clickedId) { // check if the current media id matches the clicked id
-                this.numero = index; // set the carousel index to the current media index
+        mediaArray.forEach((elt, index) => {
+            const media = new MediaFactory(elt)
+            this.$mediaArray.push(media.createCarouselCard(media.domMedia));
+            if (elt.id === clickedId) {
+                this.numero = index;
             }
         });
 
         const carousel = `
           <div id="slider">
-            <div id="precedent"><i class="fa-sharp fa-solid fa-chevron-left"></i></div>
+            <a href="#precedent" id="precedent" alt="Previous image"><i class="fa-sharp fa-solid fa-chevron-left"></i></a>
             ${this.$mediaArray[this.numero].outerHTML}
-            <div id="suivant"><i class="fa-sharp fa-solid fa-chevron-right"></i></div>
-            <div class="close-btn"><i class="fa-sharp fa-solid fa-xmark"></i><div>
+            <a href="#suivant" id="suivant" alt="Next image"><i class="fa-sharp fa-solid fa-chevron-right"></i></a>
+            <a href="#closeCarousel" class="close-btn" alt="close dialog"><i class="fa-sharp fa-solid fa-xmark"></i><a>
           </div>
         `
         this.$wrapper.innerHTML = carousel
@@ -136,6 +175,7 @@ export default class Carousel {
         this.onCloseButton()
         this.onClickPrecedent()
         this.onClickSuivant()
+        this.keepFocusOnModal()
     }
 
     render() {
