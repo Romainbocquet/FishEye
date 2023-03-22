@@ -19,13 +19,13 @@ export default class SorterForm {
 
             const sortedData = await this.ProxyRatingSorter.sorter(this.media, sorter);
 
-            const sortedMedia = sortedData.media ;
+            const sortedMedia = sortedData.media;
 
             sortedMedia.forEach(work => {
-                    const works = new MediaFactory(work);
-                    this.$mediaWrapper.appendChild(
-                        works.createWorkCard(sortedMedia, works.domMediaDisplay)
-                    );
+                const works = new MediaFactory(work);
+                this.$mediaWrapper.appendChild(
+                    works.createWorkCard(sortedMedia, works.domMediaDisplay)
+                );
             });
         } else {
             this.media.forEach(work => {
@@ -46,7 +46,7 @@ export default class SorterForm {
             });
     }
 
-    onClickSelect(){
+    onClickSelect() {
         const select = this.$wrapper.querySelector('.select');
         const selectContainer = this.$wrapper.querySelector('.select-container');
         const option = this.$wrapper.querySelectorAll('.select-container .option');
@@ -61,18 +61,18 @@ export default class SorterForm {
 
         select.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
-                selectContainer.classList.toggle('active') ;
+                selectContainer.classList.toggle('active');
                 optionContainer.classList.toggle('d-none');
             }
         });
-        
-        option.forEach( e => {
+
+        option.forEach(e => {
             e.addEventListener('click', () => {
                 input.value = e.innerText;
-                selectContainer.classList.toggle('active') ;
+                selectContainer.classList.toggle('active');
                 optionContainer.classList.toggle('d-none');
                 selectContainer.classList.remove('active');
-                option.forEach( e => {
+                option.forEach(e => {
                     e.classList.remove('selected');
                 });
                 e.classList.add('selected');
@@ -86,8 +86,8 @@ export default class SorterForm {
 
     // Dans la méthode render() de la classe SorterForm :
 
-render() {
-    const sorterForm = `
+    render() {
+        const sorterForm = `
         <h4 for="custom-select" id="label-select">Trier par</h4>
         <form class="select-container">
             <div class="select">
@@ -108,17 +108,17 @@ render() {
         </form>
     `;
 
-    this.$wrapper.innerHTML = sorterForm;
-    this.onChangeSorter();
-    this.onClickSelect();
+        this.$wrapper.innerHTML = sorterForm;
+        this.onChangeSorter();
+        this.onClickSelect();
 
-    // Désactiver le comportement par défaut du champ de saisie de texte
-    const form = this.$wrapper.querySelector('.select-container');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-    });
+        // Désactiver le comportement par défaut du champ de saisie de texte
+        const form = this.$wrapper.querySelector('.select-container');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
 
-    this.$sorterFormWrapper.appendChild(this.$wrapper);
-}
+        this.$sorterFormWrapper.appendChild(this.$wrapper);
+    }
 
 }

@@ -14,7 +14,7 @@ export default class RatingSorterApi {
                           }
                           return 0;
                       }),
-                  }
+                  };
                   return result;
       } else if (orderBy === 'date') {
         const result = {
@@ -30,7 +30,7 @@ export default class RatingSorterApi {
                 }
                 return 0;
             }),
-        }
+        };
         return result;
       } else if (orderBy === 'like') {
             const result = {
@@ -46,11 +46,11 @@ export default class RatingSorterApi {
                     }
                     return 0;
                 }),
-            }
+            };
             return result;
       } 
       else {
-          throw 'unknow orderBy type'
+          throw 'unknow orderBy type';
       }
   }
 }

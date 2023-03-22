@@ -1,45 +1,45 @@
-import MediaFactory from "../factories/MediaFactory.js";
+import MediaFactory from '../factories/MediaFactory.js';
 
 export default class Carousel {
     constructor(medias) {
-        this.medias = medias
+        this.medias = medias;
 
-        this.numero = 0
+        this.numero = 0;
 
-        this.$mediaArray = []
+        this.$mediaArray = [];
 
-        this.sorter = []
+        this.sorter = [];
 
-        let params = new URLSearchParams(window.location.search)
-        this.searchParams = params.get('id')
+        let params = new URLSearchParams(window.location.search);
+        this.searchParams = params.get('id');
 
-        this.$wrapper = document.createElement('div')
-        this.$wrapper.classList.add('carousel-wrapper')
+        this.$wrapper = document.createElement('div');
+        this.$wrapper.classList.add('carousel-wrapper');
 
-        this.$modalWrapper = document.querySelector('.carousel-modal')
+        this.$modalWrapper = document.querySelector('.carousel-modal');
     }
 
     onCloseButton() {
         const $closeBtn = this.$wrapper.querySelector('.close-btn');
 
         $closeBtn.addEventListener('click', () => {
-          document.body.classList.remove('no-scroll');
-      
-          this.$modalWrapper.classList.remove('d-show');
-          this.$modalWrapper.removeChild(this.$wrapper);
-            document.querySelector(".work_section").classList.remove("d-none");
+            document.body.classList.remove('no-scroll');
+
+            this.$modalWrapper.classList.remove('d-show');
+            this.$modalWrapper.removeChild(this.$wrapper);
+            document.querySelector('.work_section').classList.remove('d-none');
 
         });
         document.addEventListener('keydown', (event) => {
-            if (event.key === "Escape") {
+            if (event.key === 'Escape') {
                 document.body.classList.remove('no-scroll');
                 this.$modalWrapper.classList.remove('d-show');
                 this.$modalWrapper.removeChild(this.$wrapper);
-                document.querySelector(".work_section").classList.remove("d-none");
+                document.querySelector('.work_section').classList.remove('d-none');
 
             }
         });
-      }
+    }
 
     changeSlide(sens, sorter) {
         this.numero += sens;
@@ -63,7 +63,7 @@ export default class Carousel {
 
 
     onClickPrecedent() {
-        const precedent = this.$wrapper.querySelector("#precedent")
+        const precedent = this.$wrapper.querySelector('#precedent');
         precedent.addEventListener('click', () => {
             if (this.medias) {
                 this.changeSlide(-1);
@@ -73,7 +73,7 @@ export default class Carousel {
         });
 
         document.addEventListener('keydown', (event) => {
-            if (event.key === "ArrowLeft") {
+            if (event.key === 'ArrowLeft') {
                 if (this.medias) {
                     this.changeSlide(-1);
                 } else {
@@ -84,7 +84,7 @@ export default class Carousel {
     }
 
     onClickSuivant() {
-        const suivant = this.$wrapper.querySelector("#suivant");
+        const suivant = this.$wrapper.querySelector('#suivant');
         suivant.addEventListener('click', () => {
             if (this.medias) {
                 this.changeSlide(1);
@@ -94,7 +94,7 @@ export default class Carousel {
         });
 
         document.addEventListener('keydown', (event) => {
-            if (event.key === "ArrowRight") {
+            if (event.key === 'ArrowRight') {
                 if (this.medias) {
                     this.changeSlide(1);
                 } else {
@@ -105,13 +105,13 @@ export default class Carousel {
     }
 
     clearCarouselWrapper() {
-        this.$modalWrapper.innerHTML = ""
+        this.$modalWrapper.innerHTML = '';
     }
 
     keepFocusOnModal() {
         // add all the elements inside modal which you want to make focusable
-        const  focusableElements =
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        const focusableElements =
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
         const modal = this.$modalWrapper.querySelector('#slider'); // select the modal by it's id
         console.log(modal);
         const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
@@ -119,24 +119,24 @@ export default class Carousel {
         const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 
 
-        document.addEventListener('keydown', function(e) {
-        let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+        document.addEventListener('keydown', function (e) {
+            let isTabPressed = e.key === 'Tab';
 
-        if (!isTabPressed) {
-        return;
-        }
+            if (!isTabPressed) {
+                return;
+            }
 
-        if (e.shiftKey) { // if shift key pressed for shift + tab combination
-        if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus(); // add focus for the last focusable element
-        e.preventDefault();
-        }
-        } else { // if tab key is pressed
-        if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-        firstFocusableElement.focus(); // add focus for the first focusable element
-        e.preventDefault();
-        }
-        }
+            if (e.shiftKey) { // if shift key pressed for shift + tab combination
+                if (document.activeElement === firstFocusableElement) {
+                    lastFocusableElement.focus(); // add focus for the last focusable element
+                    e.preventDefault();
+                }
+            } else { // if tab key is pressed
+                if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+                    firstFocusableElement.focus(); // add focus for the first focusable element
+                    e.preventDefault();
+                }
+            }
         });
 
         firstFocusableElement.focus();
@@ -152,7 +152,7 @@ export default class Carousel {
         const mediaArray = this.medias || this.sorter;
 
         mediaArray.forEach((elt, index) => {
-            const media = new MediaFactory(elt)
+            const media = new MediaFactory(elt);
             this.$mediaArray.push(media.createCarouselCard(media.domMedia));
             if (elt.id === clickedId) {
                 this.numero = index;
@@ -166,19 +166,19 @@ export default class Carousel {
             <a href="#suivant" id="suivant" alt="Next image"><i class="fa-sharp fa-solid fa-chevron-right"></i></a>
             <a href="#closeCarousel" class="close-btn" alt="close dialog"><i class="fa-sharp fa-solid fa-xmark"></i><a>
           </div>
-        `
-        this.$wrapper.innerHTML = carousel
+        `;
+        this.$wrapper.innerHTML = carousel;
 
-        this.$modalWrapper.classList.add('d-show')
-        this.$modalWrapper.appendChild(this.$wrapper)
+        this.$modalWrapper.classList.add('d-show');
+        this.$modalWrapper.appendChild(this.$wrapper);
 
-        this.onCloseButton()
-        this.onClickPrecedent()
-        this.onClickSuivant()
-        this.keepFocusOnModal()
+        this.onCloseButton();
+        this.onClickPrecedent();
+        this.onClickSuivant();
+        this.keepFocusOnModal();
     }
 
     render() {
-        this.createCarousel()
+        this.createCarousel();
     }
 }

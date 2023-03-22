@@ -1,21 +1,20 @@
-import RatingSorterApi from "../lib/sorter/index.js";
+import RatingSorterApi from '../lib/sorter/index.js';
 
 export default class ProxyRatingSorter {
     constructor() {
-        this.cache = []
+        this.cache = [];
     }
 
     async sorter(media, orderBy) {
-        
-        const cachedResult = this.cache.find(elt => elt.key === orderBy)
+        const cachedResult = this.cache.find(elt => elt.key === orderBy);
 
         if (cachedResult) {
-            return cachedResult
+            return cachedResult;
         }
 
-        const data = await RatingSorterApi.sorter(media, orderBy)
+        const data = await RatingSorterApi.sorter(media, orderBy);
 
-        this.cache.push(data)
-        return data
+        this.cache.push(data);
+        return data;
     }
 }
