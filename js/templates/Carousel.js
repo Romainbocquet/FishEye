@@ -161,10 +161,10 @@ export default class Carousel {
 
         const carousel = `
           <div id="slider">
-            <a href="#precedent" id="precedent" alt="Previous image"><i class="fa-sharp fa-solid fa-chevron-left"></i></a>
+            <a href="#precedent" id="precedent" aria-label="Previous image"><i class="fa-sharp fa-solid fa-chevron-left"></i></a>
             ${this.$mediaArray[this.numero].outerHTML}
-            <a href="#suivant" id="suivant" alt="Next image"><i class="fa-sharp fa-solid fa-chevron-right"></i></a>
-            <a href="#closeCarousel" class="close-btn" alt="close dialog"><i class="fa-sharp fa-solid fa-xmark"></i><a>
+            <a href="#suivant" id="suivant" aria-label="Next image"><i class="fa-sharp fa-solid fa-chevron-right"></i></a>
+            <a href="#closeCarousel" class="close-btn" aria-label="close dialog"><i class="fa-sharp fa-solid fa-xmark"></i><a>
           </div>
         `;
         this.$wrapper.innerHTML = carousel;

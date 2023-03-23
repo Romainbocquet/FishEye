@@ -41,12 +41,12 @@ export default class Media {
     const workCard = `
     
       <article data-id="${this.id}" class="work-article">
-        <a href="#openCarousel" class="open" alt="${this.title}, closeup view">
+        <a href="#openCarousel" class="open" aria-label="${this.title}, closeup view">
           ${domMediaDisplay}
         </a>
         <div class="info-img">
           <h2 class="img-title">${this.title}</h2>
-          <a aria-label="nombre de like" href="#like" class="img-like" alt="likes"><span><div id="like-value">${this._likes}</div><i class="fa-regular fa-heart"></i></span></a>
+          <a href="#like" class="img-like" alt="likes"><span class="sr-only">Nombre de like :</span><span><div id="like-value">${this._likes}</div><i class="fa-regular fa-heart"></i></span></a>
         </div>
       </article>
     `;
