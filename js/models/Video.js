@@ -16,14 +16,14 @@ export default class Video extends Media {
   get domMedia() {
     return `
     <video controls width="250">
-      <source src="${this.video}" type="video/mp4" alt="${this.title}">
+      <source src="${this.video}" type="video/mp4" alt="${this.title} aria-label="${this.title}"">
     </video>
     `;
   }
 
   get domMediaDisplay() {
     return `<video>                
-      <source src="${this.video}" type="video/mp4" alt="${this.title}">
+      <source src="${this.video}" type="video/mp4" alt="${this.title} aria-label="${this.title}"">
     </video>`;
   }
 }

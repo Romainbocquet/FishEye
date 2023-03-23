@@ -40,7 +40,7 @@ export default class Media {
     $wrapper.dataset.id = this.id;
     const workCard = `
     
-      <article data-id="${this.id}" class="work-article" aria-label="${this.title}">
+      <article data-id="${this.id}" class="work-article">
         <a href="#openCarousel" class="open" alt="${this.title}, closeup view">
           ${domMediaDisplay}
         </a>
