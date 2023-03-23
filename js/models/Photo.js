@@ -15,16 +15,11 @@ export default class Photo extends Media {
 
   get domMedia() {
     return `
-      <img src="${this.image}" id="slide" alt="${this.title}">
-    `;
+      <img src="${this.image}" id="slide" alt="${this.title}">`;
   }
 
   get domMediaDisplay() {
     return `
-        <img
-          alt="${this.title}"
-          src="${this.image}"
-        />
-    `;
+        <img alt="${this.title}" src="${this.image}">`;
   } 
 }
