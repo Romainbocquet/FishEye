@@ -40,13 +40,13 @@ export default class Media {
     $wrapper.dataset.id = this.id;
     const workCard = `
     
-      <article data-id="${this.id}" class="work-article">
+      <article data-id="${this.id}" class="work-article" aria-label="${this.title}">
         <a href="#openCarousel" class="open" alt="${this.title}, closeup view">
           ${domMediaDisplay}
         </a>
         <div class="info-img">
           <h2 class="img-title">${this.title}</h2>
-          <a href="#like" class="img-like" alt="likes"><span><div id="like-value">${this._likes}</div><i class="fa-regular fa-heart"></i></span></a>
+          <a aria-label="nombre de like" href="#like" class="img-like" alt="likes"><span><div id="like-value">${this._likes}</div><i class="fa-regular fa-heart"></i></span></a>
         </div>
       </article>
     `;

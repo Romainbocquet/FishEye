@@ -218,7 +218,7 @@ export default class PhotographersCard {
                         <input type="text" name="message" id="message" alt="your message">
                         <p id="message-error">Veuillez renseigner un massage</p>
                         <input type="button" id="send-button" alt="Send" value="Envoyer">
-                        <button class="close-contact" alt="close contact form"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+                        <button class="close-contact" alt="close"><i class="fa-sharp fa-solid fa-xmark"></i><span class="d-none">I</span></button>
                     </form>
                 </div>
                     <img
