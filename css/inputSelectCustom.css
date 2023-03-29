@@ -53,6 +53,7 @@
   color: white;
 }
 .select-container .option-container {
+  z-index: 99;
   position: absolute;
   background: #911C1C;
   border-radius: 0px 0px 5px 5px;
